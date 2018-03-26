@@ -1,0 +1,9 @@
+.rating {
+    float: right;
+    background: #E50914;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    margin: 10px;
+}
