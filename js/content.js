@@ -20,10 +20,10 @@ function add_hover_listeners(titles){
                             var xhttp_imdb_2 = new XMLHttpRequest();
                             xhttp_imdb_2.onreadystatechange = function() {
                                 if (this.readyState == 4 && this.status == 200) {
-                                    var imdb_html = document.createElement('html');
-                                    imdb_html.innerHTML = this.responseText;
+                                    var parser = new DOMParser();
+                                    var imdb_document = parser.parseFromString(this.responseText, "text/html");
 
-                                    var imdb_rating = imdb_html.getElementsByClassName('ratingValue')[0].innerText.trim();
+                                    var imdb_rating = imdb_document.getElementsByClassName('ratingValue')[0].innerText.trim();
 
                                     var rating_span = document.createElement('span')
                                     rating_span.innerHTML = imdb_rating;
