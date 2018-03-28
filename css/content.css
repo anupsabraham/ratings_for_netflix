@@ -1,4 +1,6 @@
-.rating {
+.imdb-rating {
+	position: relative;
+	z-index: 2;
     float: right;
     background: #E50914;
     color: #fff;

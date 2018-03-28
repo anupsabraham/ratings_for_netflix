@@ -45,8 +45,30 @@ function add_hover_listeners(titles){
                                         // Create a span element on the title card to display rating
                                         var rating_span = document.createElement('span')
                                         rating_span.innerHTML = imdb_rating;
-                                        rating_span.className = "rating";
+                                        rating_span.className = "imdb-rating";
+                                        var bob_card_rating = rating_span.cloneNode(true);
                                         netflix_title.insertBefore(rating_span, netflix_title.firstChild);
+                                        var bob_card_span = netflix_title.getElementsByTagName('span')[1];
+
+                                        // Observer for the bob card
+                                        // Copy the rating span to bob card once it is open.
+                                        var observer = new MutationObserver(function(mutations) {
+                                          mutations.forEach(function(mutation) {
+                                            var nodes = Array.prototype.slice.call(mutation.addedNodes);
+                                            nodes.forEach(function(node) {
+                                              if (node.parentElement.getAttribute('data-reactid') != null) {
+                                                node.insertBefore(bob_card_rating, node.firstChild)
+                                              }
+                                            });
+                                          });
+                                        });
+                                        observer.observe(netflix_title, {
+                                          childList: true,
+                                          subtree: true,
+                                          attributes: false,
+                                          characterData: false,
+                                        });
+
                                     }
                                     // Remove the title from lock since the imdb call failed. May want to refetch again.
                                     else if (this.readyState == 4 && this.status != 200) {
