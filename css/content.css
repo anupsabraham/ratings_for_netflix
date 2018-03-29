@@ -1,11 +1,27 @@
-.imdb-rating {
-	position: relative;
-	z-index: 2;
+.imdb-rating, .rt-rating {
+    position: relative;
+    z-index: 2;
     float: right;
-    background: #E50914;
-    color: #fff;
+    color: #FFF;
+    background: #FA320A;
+    padding: 3px 6px;
+    margin: 10px;
+    border-radius: 2px;
     font-size: 12px;
     font-weight: bold;
-    padding: 3px 7px;
-    margin: 10px;
+}
+.imdb-rating {
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(217,172,59,1)), color-stop(51%, rgba(238,220,141,1)), color-stop(100%, rgba(217,172,59,1)));
+    background: -webkit-linear-gradient(left, rgba(217,172,59,1) 0%, rgba(238,220,141,1) 51%, rgba(217,172,59,1) 100%);
+    color: #000;
+}
+.imdb-rating .imdb-rating-value {
+    font-size: 12px;
+}
+.imdb-rating .imdb-best-rating{
+    font-size: 9px;
+    font-weight: normal;
+}
+.rt-rating.rotten {
+    background: #5AC462;
 }
