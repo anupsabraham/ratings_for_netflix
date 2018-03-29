@@ -19,6 +19,9 @@
       "storage"
     ],
     "options_page": "html/options.html",
+    "background": {
+        "scripts": ["js/background.js"]
+    },
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXoCBB7M2TbTHTi19P+/RNsgRtn6T+vSBPwGWMSH+Kt23mtq8x6kQS98zjR10P/9NZyvDiyMfq1A2XcjCn9alU4id0dGUSE+TTYld+EiL2xHBZsnB5YzPdWEN8i3sstK5ItiD/o/EOnUMyMC8b7PfwYyxrevzSESUpKnAySIdmGHDqLanPXEB2xDYAL408f8WTWoe/qbw+TILOurEIFqEccVFRn0gJEPDK1vIPebgqKHIq82pfj9ahJS5zbTRZoaAPtLw1kThoaRBJlBVtSRGSLapjpsKrcL86oHBDq8RvAE0Df2uGxbZSomr4egLRd2bXGC8Ik8ca/CySYKzX8CPQIDAQAB",
     "update_url": "https://raw.githubusercontent.com/anupsabraham/ratings_for_netflix/master/release/update.xml"
 }
