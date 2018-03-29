@@ -9,3 +9,15 @@
     padding: 3px 7px;
     margin: 10px;
 }
+
+.rt-rating {
+	position: relative;
+	z-index: 2;
+    float: right;
+    background: #E50914;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    margin: 10px;
+}
