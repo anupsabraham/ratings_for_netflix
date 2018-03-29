@@ -8,9 +8,7 @@ function add_hover_listeners(titles){
         if (lock_titles.indexOf(title) < 0) {
           lock_titles.push(title);
           chrome.storage.sync.get('ratingSite', function(data) {
-            console.log(data)
             rating_site = data.ratingSite;
-            console.log(rating_site);
             if (rating_site == "IMDB") {
               // Convert title to imdb search query string
               var query_string = title.toLowerCase().replace(/^\s*/,"").replace(/[ ]+/g,"_")
@@ -47,8 +45,13 @@ function add_hover_listeners(titles){
                         var imdb_rating = imdb_document.getElementsByClassName('ratingValue')[0].innerText.trim();
 
                         // Create a span element on the title card to display rating
-                        var rating_span = document.createElement('span')
-                        rating_span.innerHTML = imdb_rating;
+                        var rating_span = document.createElement('span');
+                        var rating_split = imdb_rating.split("/");
+                        rating_span.innerHTML = '<span class="imdb-rating-value">' +
+                                                rating_split[0] + '</span>' +
+                                                '<span class="imdb-best-rating">/' +
+                                                rating_split[1]
+
                         rating_span.className = "imdb-rating";
                         var bob_card_rating = rating_span.cloneNode(true);
                         netflix_title.insertBefore(rating_span, netflix_title.firstChild);
@@ -130,7 +133,7 @@ function add_hover_listeners(titles){
                     // If searching for exact match didn't give any result, 
                     // use the first result as title
                     if (title_result == null) {
-                      if (reponse.movieCount > 0) {
+                      if (response.movieCount > 0) {
                         title_result = {
                           'name': response.movies[0].name,
                           'meterClass': response.movies[0].meterClass,
@@ -147,10 +150,14 @@ function add_hover_listeners(titles){
                     }
                     console.log(title + " | " + title_result.name);
 
+                    if (title_result.meterScore == undefined) {
+                        title_result.meterScore = "-";
+                    }
+
                     // Create a span element on the title card to display rating
                     var rating_span = document.createElement('span')
-                    rating_span.innerHTML = title_result.meterScore;
-                    rating_span.className = "rt-rating";
+                    rating_span.innerHTML = title_result.meterScore + '%';
+                    rating_span.className = "rt-rating " + title_result.meterClass;
                     var bob_card_rating = rating_span.cloneNode(true);
                     netflix_title.insertBefore(rating_span, netflix_title.firstChild);
                     var bob_card_span = netflix_title.getElementsByTagName('span')[1];
