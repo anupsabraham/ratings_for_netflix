@@ -94,7 +94,7 @@ function add_hover_listeners(titles){
             }
             else if (rating_site == "Rotten Tomatoes") {
               // Convert title to imdb search query string
-              var query_url = "https://www.rottentomatoes.com/api/private/v2.0/search/?limit=4&q=" + title
+              var query_url = "https://www.rottentomatoes.com/api/private/v2.0/search/?limit=2&q=" + title
 
               // Search API
               var xhttp_rottentomatoes = new XMLHttpRequest();
