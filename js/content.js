@@ -26,7 +26,7 @@ function add_hover_listeners(titles){
 
                     var title_result = response.d[0]
                     // Search for exact match of the title.
-                    for (var i=1; i < response.d.length; i++) {
+                    for (var i=0; i < response.d.length; i++) {
                       if (response.d[i].l.trim() == title.trim()){
                         title_result = response.d[i];
                         break;
