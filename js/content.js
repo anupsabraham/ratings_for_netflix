@@ -47,10 +47,10 @@ function add_hover_listeners(titles){
                         // Create a span element on the title card to display rating
                         var rating_span = document.createElement('span');
                         var rating_split = imdb_rating.split("/");
-                        rating_span.innerHTML = '<span class="imdb-rating-value">' +
+                        rating_span.innerHTML = '<a href="' + imdb_url +'"><span class="imdb-rating-value">' +
                                                 rating_split[0] + '</span>' +
                                                 '<span class="imdb-best-rating">/' +
-                                                rating_split[1]
+                                                rating_split[1] + '</a>'
 
                         rating_span.className = "imdb-rating";
                         var bob_card_rating = rating_span.cloneNode(true);
