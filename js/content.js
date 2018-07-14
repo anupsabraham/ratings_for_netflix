@@ -4,7 +4,7 @@ function add_hover_listeners(titles){
     (function() {
       var netflix_title = titles[i];
       netflix_title.addEventListener('mouseenter', function(){
-        var title = this.getElementsByClassName('video-preload-title-label')[0].textContent;
+        var title = this.getElementsByClassName('ptrack-content')[0].textContent;
         if (lock_titles.indexOf(title) < 0) {
           lock_titles.push(title);
           chrome.storage.sync.get('ratingSite', function(data) {
