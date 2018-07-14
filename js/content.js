@@ -4,7 +4,7 @@ function add_hover_listeners(titles){
     (function() {
       var netflix_title = titles[i];
       netflix_title.addEventListener('mouseenter', function(){
-        var title = this.getElementsByClassName('video-preload-title-label')[0].textContent;
+        var title = this.getElementsByClassName('ptrack-content')[0].textContent;
         if (lock_titles.indexOf(title) < 0) {
           lock_titles.push(title);
           chrome.storage.sync.get('ratingSite', function(data) {
@@ -47,10 +47,10 @@ function add_hover_listeners(titles){
                         // Create a span element on the title card to display rating
                         var rating_span = document.createElement('span');
                         var rating_split = imdb_rating.split("/");
-                        rating_span.innerHTML = '<span class="imdb-rating-value">' +
+                        rating_span.innerHTML = '<a href="' + imdb_url +'"><span class="imdb-rating-value">' +
                                                 rating_split[0] + '</span>' +
                                                 '<span class="imdb-best-rating">/' +
-                                                rating_split[1]
+                                                rating_split[1] + '</a>'
 
                         rating_span.className = "imdb-rating";
                         var bob_card_rating = rating_span.cloneNode(true);
